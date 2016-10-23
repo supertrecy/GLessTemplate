@@ -1,0 +1,61 @@
+//******************** General Framework for every page ********************/
+//body is the biggest parent element in dom
+.body-css(@line_height,@bg_color,@font_color,@padding){
+  line-height: @line_height;
+  color: @font_color;
+  background-color: @bg_color;
+  padding:@padding;
+}
+
+//top-line is top line to present the info of user
+.top-line(@height,@width,@bg_color,@font_color,@padding){
+  height:@height;
+  width:@width;
+  color: @font_color;
+  background-color: @bg_color;
+  padding:@padding;
+}
+
+//wrap = body - top-line;
+//because the page content under top-line is always center and has equal distance to left side and right side
+.wrap(@width){
+  width: @width;
+  margin: 0 auto;
+}
+
+//header div describe the space between top-line and nav-bar,generally used to present website's name
+.header(@height,@padding){
+  height: @height;
+  padding:@padding;
+}
+
+//the top corner of nav-bar is rounded corner
+.nav-bar(@border_bottom_css,@bg_css,@border_radius){
+  clear: both;
+  border-bottom: @border_bottom_css;
+  background:@bg_css;
+  -webkit-border-radius: @border_radius;
+  -moz-border-radius: @border_radius;
+  border-radius: @border_radius;
+}
+//the most signicant content of page is putted into this div
+.main(@padding,@bg_color,@box_shadow,@min_height){
+  padding: @padding 0;
+  background-color: @bg_color;
+  -webkit-box-shadow: @box_shadow;
+  -moz-box-shadow: @box_shadow;
+  box-shadow: @box_shadow;
+  min-height: @min_height;
+}
+
+//footer is behind .main
+.footer(@margin_bottom,@padding,@border_radius,@bg_color){
+  margin-bottom: @margin_bottom;
+  padding: @padding;
+  -webkit-border-radius: @border_radius;
+  -moz-border-radius: @border_radius;
+  border-radius: @border_radius;
+  background-color: @bg_color;
+}
+/////////////////////////////////////////////////////////////////////////////
+//******************** General Framework for every page ********************/
