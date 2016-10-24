@@ -58,4 +58,119 @@
   background-color: @bg_color;
 }
 /////////////////////////////////////////////////////////////////////////////
-//******************** General Framework for every page ********************/
+//******************** General Framework for Index page ********************/
+
+///////////////////////////////////////
+/////What to do about nav bar item/////
+///////////////////////////////////////
+
+//index display box,we can define different box by modifing these size
+.display-box(@width,@height,@border,@margin,@padding,@hd_height,@hd_bg_color,@title_font_color){
+  width: @width;
+  height: @height;
+  border: @border;
+  margin:@margin;
+  padding: @padding;
+
+  //box's header
+  & .hd{
+    background-color: @title_bg_color;
+    height: @title_height;
+
+    //header's title
+    & .title{
+      color: @title_font_color;
+    }
+  }
+}
+
+//tabs group in the box's header,to change to the view of different kind of information
+.hd-tabs(@left,@active_bg_color,@li_padding,@li_font_size,@active_border,@active_border_bottom){
+  left: @left;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+
+  //every tab
+  & li {
+    .left;
+    padding: @li_padding;
+    cursor: pointer;
+    list-style: none;
+    font-size: @li_font_size;
+
+    //tab has been clicked
+    & .active{
+      background: @active_bg_color;
+      border: @active_border;
+      border-bottom: @active_border_bottom;
+    }
+  }
+
+}
+//footer's column,to display some website info
+.footer-col(@class_name,@col_num,@t_margin,@t_padding,@t_font_color,@t_border_bottom,@t_font_size){
+  .generate-columns(@class_name,@col_num);
+  & title{
+    margin: @t_margin;
+    padding: @t_padding;
+    color: @t_font_color;
+    font-size: @t_font_size;
+    font-weight: bold;
+    border-bottom: @t_border_bottom;
+  }
+
+}
+
+//website's copyright on the bottom of footer
+.footer-copyright(@padding,@border_top){
+  clear: both;
+  padding: @padding;
+  border-top: @border_top;
+}
+
+//every info list to display information, has different style
+.info-list(@background,@padding){
+  background: @background;
+  padding: @padding;
+}
+
+//every item of info list
+.info-list-item(@font_color,@font_size,@padding,@border_bottom,@margin,@background,@bg_position){
+  color:@font_color;
+  font-size: @font_size;
+  padding:@padding;
+  border-bottom: @border_bottom;
+  margin:@margin;
+  background: @background;
+  background-position:@bg_position;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/////////////////////////////////////////////////////////////////////////////
+//******************** General Framework for Other page ********************/
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+//***********************************Util**********************************//
+//divide the height to @n column
+.generate-columns(@class_name,@n, @i: 1) when (@i =< @n) {
+  .@{class_name}-@{i} {
+    width: (@i * 100% / @n);
+  }
+  .generate-columns(@n, (@i + 1));
+}
+//float to right
+.right(){
+  float:right;
+}
+//float to left
+.left(){
+  float:left;
+}
+.relative(){
+  position: relative;
+}
