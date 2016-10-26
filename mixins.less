@@ -19,8 +19,7 @@
 //wrap = body - top-line;
 //because the page content under top-line is always center and has equal distance to left side and right side
 .wrap(@width){
-  width: @width;
-  margin: 0 auto;
+  .center(@width);
 }
 
 //header div describe the space between top-line and nav-bar,generally used to present website's name
@@ -151,8 +150,63 @@
 
 /////////////////////////////////////////////////////////////////////////////
 //******************** General Framework for Other page ********************/
+.borderONbottom(@border_bottom){
+  border-bottom: @border_bottom;
+}
 
+.table(@width,@bg_color,@border_top,@border_right,@border_bottom,@border_left){
+  width: @width;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0;
+  padding: 0;
+  background-color: @bg_color;
+  border-top: @border_top;
+  border-right: @border_right;
+  border-left: @border_left;
+  border-bottom: @border_bottom;
+}
 
+.td(@padding,@bg_color,@even_bg_color,@border_right,@border_bottom,@border_left,@font_color,@font_size,@line-height,@header_line-height){
+  background-color: @bg_color;
+  border-right: @border_right;
+  border-left: @border_left;
+  border-bottom: @border_bottom;
+  font-size: @font_size;
+  padding: @padding;
+  color: @font_color;
+
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: @line-height;
+
+  .header{
+    line-height: @header_line-height;
+  }
+
+  .even{
+    background-color: @even_bg_color;
+  }
+
+}
+//a box has border
+.border-box(@width,@margin,@padding,@border){
+  width: @width;
+  margin:@margin;
+  padding:@padding;
+  border:@border;
+}
+.a(@font_size,@padding,@border_radius,@bg_color:inherit,@hover_bg_color:inherit,@font_color,@hover_font_color){
+  font-size:@font_size;
+  background-color:inherit;
+  color:@font_color;
+  border-radius: @border_radius;
+  padding: @padding;
+
+  &:hover{
+    color:@hover_font_color;
+    background-color:@hover_bg_color;
+  }
+}
 
 /////////////////////////////////////////////////////////////////////////////
 //***********************************Util**********************************//
@@ -163,14 +217,24 @@
   }
   .generate-columns(@n, (@i + 1));
 }
-//float to right
+//float to right,for div
 .right(){
   float:right;
 }
-//float to left
+//in the center, for div
+.center(@width){
+  width: @width;
+  margin: 0 auto;
+}
+//float to left,for div
 .left(){
   float:left;
 }
+//set text in the center of line or div,occupy the whole line
+.text-center(){
+  text-align: center;
+}
+//position is relative
 .relative(){
   position: relative;
 }
